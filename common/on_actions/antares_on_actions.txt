@@ -1,0 +1,22 @@
+### ANTARES ON_ACTIONS
+# Called during empire initialization when starting a new game if has_secondary_species game rule is true.
+# Called before empire_init_create_capital_pops.
+# scope: planet
+# from: founder species
+# fromfrom: secondary species (if exists)
+# Triggers when the game starts
+
+empire_init_capital_planet = {
+	events = {
+		antares.1 # starting buildings, districts & pops
+	}
+}
+
+
+
+on_game_start = {
+	events = {
+		antares_game_start.2002 # Spawn special/hidden countries for origins
+		antares.2 #starting planet modifiers
+	}
+}

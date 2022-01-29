@@ -1,0 +1,236 @@
+namespace = antares
+
+
+planet_event = {
+	id = antares.1
+	hide_window = yes
+
+	is_triggered_only = yes
+
+	trigger = {
+		has_planet_flag = Lindewe
+	}
+	immediate = {
+		owner = {
+			save_event_target_as = antares_owner
+			add_resource = { food = 200	}
+			add_resource = { minerals = 100 }
+			add_resource = { energy = 100	}
+		}
+			
+	
+		add_district_and_planet_size_if_needed_effect = {
+			district = district_city
+		}
+		add_district_and_planet_size_if_needed_effect = {
+			district = district_farming
+		}			
+		while = {
+			count = 8
+			create_pop = {
+				species = owner_main_species
+			}
+		}
+		add_building = building_capital
+		add_building = building_bureaucratic_1
+
+		solar_system = {	
+			random_list = {
+				1 = {
+					star = {
+						create_ambient_object = {
+							type = "turbulent_nebula_1"
+							location = this
+						}
+						last_created_ambient_object = {
+							set_location = {
+								target = prev
+								distance = 0
+								angle = random
+							}
+						}
+					}
+					add_modifier = { modifier = turbulent_nebula }
+				}
+				1 = {
+					star = {
+						create_ambient_object = {
+							type = "turbulent_nebula_2"
+							location = this
+						}
+						last_created_ambient_object = {
+							set_location = {
+								target = prev
+								distance = 0
+								angle = random
+							}
+						}
+					}
+					add_modifier = { modifier = turbulent_nebula }
+				}
+			}			
+			random_system_planet = {
+				limit = { has_planet_flag = Hai }
+				set_owner = event_target:antares_owner
+				while = {
+					count = 5
+					create_pop = {
+						species = owner_main_species
+					}
+				}
+				add_district = district_city
+				add_building = building_factory_1	
+			}
+			random_system_planet = {
+				limit = { has_planet_flag = Dakarai }
+				set_owner = event_target:antares_owner
+				while = {
+					count = 12
+					create_pop = {
+						species = owner_main_species
+					}
+				}
+				set_planet_entity = {
+					entity = "habitat_phase_01_entity"
+					graphical_culture = event_target:void_dweller_owner
+				}
+				add_district = district_generator
+				# add_district = district_mining	
+				add_district = district_farming
+				add_district = district_city
+	
+				add_building = building_capital
+				add_building = building_foundry_1
+				add_building = building_research_lab_1
+
+			}
+			random_system_planet = {
+				limit = { has_planet_flag = Vinh }
+				set_owner = event_target:antares_owner
+				while = {
+					count = 4
+					create_pop = {
+						species = owner_main_species
+					}
+				}
+				add_district = district_generator				
+			}
+			random_system_planet = {
+				limit = { has_planet_flag = Ziva }
+				set_owner = event_target:antares_owner
+				while = {
+					count = 4
+					create_pop = {
+						species = owner_main_species
+					}
+				}
+				add_district = district_farming			
+			}
+			random_system_planet = {
+				limit = { has_planet_flag = Alhaji }
+				set_owner = event_target:antares_owner
+				while = {
+					count = 4
+					create_pop = {
+						species = owner_main_species
+					}
+				}
+				add_district = district_mining
+			}			 
+		}
+	}
+}
+
+event = {
+	id = antares.2
+	hide_window = yes
+
+	is_triggered_only = yes
+
+	trigger = {
+	}
+
+	immediate = {
+		every_planet = {
+			if = {
+				limit = {
+					has_planet_flag = Ziva
+				}
+				add_modifier = {
+					modifier = dangerous_wildlife
+				}
+				add_modifier = {
+					modifier = mineral_poor
+				}
+			}
+			if = {
+				limit = {
+					has_planet_flag = Dakarai
+				}
+				add_modifier = {
+					modifier = wild_storms
+				}
+			}
+			if = {
+				limit = {
+					has_planet_flag = Ariane
+				}
+				add_modifier = {
+					modifier = weak_magnetic_field
+				}
+				add_modifier = {
+					modifier = natural_beauty
+				}
+			}
+			if = {
+				limit = {
+					has_planet_flag = Njeri
+				}
+				add_modifier = {
+					modifier = bleak_planet
+				}
+			}
+			if = {
+				limit = {
+					has_planet_flag = Vinh
+				}
+				add_modifier = {
+					modifier = unstable_tectonics 
+				}
+				add_modifier = {
+					modifier = mineral_rich 
+				}				
+				add_deposit = d_veiny_cliffs 
+				add_deposit = d_rich_mountain 
+				add_deposit = d_submerged_ore_veins 
+				add_deposit = d_submerged_ore_veins 
+				add_deposit = d_toxic_kelp 
+				add_deposit = d_toxic_kelp 
+				add_deposit = d_mountain_range 
+				add_deposit = d_active_volcano
+			}
+			if = {
+				limit = {
+					has_planet_flag = Hai
+				}
+				add_modifier = {
+					modifier = wild_storms 
+				}
+			}
+			if = {
+				limit = {
+					has_planet_flag = Alhaji
+				}
+				add_modifier = {
+					modifier = lush_planet 
+				}
+				add_deposit = d_bountiful_plains
+				add_deposit = d_black_soil
+				add_deposit = d_fertile_lands
+				add_deposit = d_great_river
+				add_deposit = d_nutritious_mudland				
+			}
+			
+		}				
+	}
+}

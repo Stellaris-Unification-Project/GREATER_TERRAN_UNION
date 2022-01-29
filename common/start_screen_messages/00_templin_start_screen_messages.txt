@@ -1,0 +1,19 @@
+# ANTARES
+part = {
+	location = 0
+	localization = "START_SCREEN_ANTARES"
+	
+	trigger = {
+			has_country_flag = antares
+		}
+	}
+
+# GTU
+part = {
+	location = 0
+	localization = "START_SCREEN_GTU"
+	
+	trigger = {
+			has_country_flag = gtu
+		}
+	}	

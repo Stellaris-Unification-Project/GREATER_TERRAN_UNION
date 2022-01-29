@@ -1,0 +1,410 @@
+#############################
+#										
+#  Custom Starting Systems  #
+#										
+#############################
+
+@distance = 50
+@jumps = 3
+@moon_min_size = 6
+@moon_max_size = 10
+
+@base_moon_distance = 8
+
+@standard_min = 26
+@standard_max = 30
+@standard_sat_min = 22
+@standard_sat_max = 27
+
+# Trinary System I
+antares_initializer = {
+	class = "rl_trinary_stars"
+	name = "Antares"
+	
+	usage = custom_empire
+	
+	flags = { empire_home_system antares_initializer }
+
+	init_effect = {
+		every_neighbor_system = {
+			set_star_flag = empire_cluster
+			every_neighbor_system = {
+				set_star_flag = empire_cluster
+			}
+		}
+		
+		generate_home_system_resources = yes
+	}
+
+	asteroid_belt = {
+		type = rocky_asteroid_belt
+		radius = 250
+	}
+		
+	planet = {
+        count = 1
+		class = star
+		name = "Abeni"
+        orbit_distance = 0
+        orbit_angle = 0
+        size = { min = @standard_min max = @standard_max }
+        has_ring = no
+    }
+
+    change_orbit = { min = 50 max = 60 }
+    
+    planet = {
+        count = 1
+        orbit_distance = { min = 15 max = 20 }
+		class = pc_barren
+		name = "Madalisto"
+        orbit_angle = { min = 90 max = 270 }
+		flags = { hot_zone }
+        
+    }
+	
+	planet = {
+        count = 1
+        orbit_distance = { min = 15 max = 25 }
+		class = pc_molten
+		name = "Aberash"
+        orbit_angle = { min = 90 max = 270 }
+		flags = { warm_zone }
+        
+        change_orbit = @base_moon_distance
+        
+        moon = {
+			count = 1
+			class = pc_barren
+			name = "Fatsani"
+            orbit_angle = { min = 90 max = 270 }
+            orbit_distance = 5
+			flags = { warm_zone }
+        }
+    }
+	
+	planet = {
+        count = 1
+        orbit_distance = { min = 15 max = 30 }
+		class = pc_ocean
+		name = "Hai"
+		flags = { Hai }
+        orbit_angle = { min = 90 max = 270 }
+		size = { min = 16 max = 20 }
+		deposit_blockers = none
+		modifiers = none
+
+		init_effect = {
+			prevent_anomaly = yes
+		}
+		
+		
+		change_orbit = @base_moon_distance
+
+		moon = {
+			count = 1
+			class = pc_frozen
+			name = "Dalisto"
+			orbit_angle = { min = 90 max = 270 }
+			orbit_distance = 5
+		}
+    }
+	
+	planet = {
+        count = 1
+        orbit_distance = { min = 20 max = 30 }
+		class = pc_continental
+		name = "Ariane"
+		flags = { Ariane }
+		orbit_angle = { min = 90 max = 270 }
+		# modifiers = "pm_weak_magnetic_field"
+        
+    }
+	
+	planet = {
+        count = 1
+        orbit_distance = { min = 20 max = 30 }
+		class = pc_gas_giant
+		name = "Bao"
+		has_ring = no
+        orbit_angle = { min = 90 max = 270 }
+        
+        change_orbit = @base_moon_distance
+        
+        moon = {
+            count = 1
+            orbit_angle = { min = 90 max = 270 }
+			class = continental
+			name = "Lindewe"
+			size = { min = 16 max = 18 }
+			flags = { Lindewe special_start_planet }
+			home_planet = yes
+			orbit_distance = 5
+			
+			init_effect = {
+				generate_empire_home_planet = yes			
+			}
+        }
+	}
+	
+	planet = {
+        count = 1
+        orbit_distance = { min = 20 max = 30 }
+		class = pc_alpine
+		name = "Nakiska"
+        orbit_angle = { min = 90 max = 270 }
+		size = { min = 16 max = 20 }
+		deposit_blockers = none
+		modifiers = none
+
+		init_effect = {
+			prevent_anomaly = yes
+		}
+		
+		
+		change_orbit = @base_moon_distance
+
+		moon = {
+			count = 1
+			class = pc_arid
+			name = "Kimberley"
+			orbit_angle = { min = 90 max = 270 }
+			orbit_distance = 5
+		}
+	}
+	
+	planet = {
+        count = 1
+        orbit_distance = { min = 20 max = 30 }
+		class = pc_gas_giant
+		name = "Masozi"
+        orbit_angle = { min = 90 max = 270 }
+		size = { min = 16 max = 20 }
+		deposit_blockers = none
+		modifiers = none
+
+		init_effect = {
+			prevent_anomaly = yes
+		}
+		
+	}
+	
+	planet = {
+        count = 1
+        orbit_distance = { min = 20 max = 30 }
+		class = pc_barren_cold
+		name = "Kanika"
+        orbit_angle = { min = 90 max = 270 }
+		size = { min = 16 max = 20 }
+		deposit_blockers = none
+		modifiers = none
+
+		init_effect = {
+			prevent_anomaly = yes
+		}
+		
+	}
+	
+	planet = {
+        count = 1
+        orbit_distance = { min = 20 max = 30 }
+		class = pc_barren_cold
+		name = "Kito"
+        orbit_angle = { min = 90 max = 270 }
+		size = { min = 16 max = 20 }
+		deposit_blockers = none
+		modifiers = none
+
+		init_effect = {
+			prevent_anomaly = yes
+		}
+		
+    }
+	
+	planet = {
+		count = 1
+		class = star
+		name = "Nakato"
+		orbit_distance = { min = 160 max = 200 }
+		orbit_angle = { min = 90 max = 270 }
+		size = { min = @standard_sat_min max = @standard_sat_max }
+		has_ring = no
+		satellite_naming_policy = upper_case_roman_numerals
+
+		change_orbit = { min = 50 max = 60 }
+
+		planet = {
+			count = 1
+			orbit_angle = { min = 90 max = 270 }
+			orbit_distance = { min = 15 max = 20 }
+			class = pc_barren
+			name = "Thanh"
+			satellite_naming_policy = lower_case_latin_letters
+			flags = { hot_zone }
+
+			change_orbit = @base_moon_distance
+
+			moon = {
+				count = { min = 0 max = 1 }
+				name = "Kane"
+				orbit_angle = { min = 90 max = 270 }
+				class = pc_molten
+				orbit_distance = 5
+				flags = { hot_zone }
+			}
+		}
+		
+		planet = {
+			count = 1
+			orbit_angle = { min = 90 max = 270 }
+			orbit_distance = { min = 20 max = 25 }
+			class = pc_molten
+			name = "Adaeze"
+			satellite_naming_policy = lower_case_latin_letters
+		}
+		
+		planet = {
+			count = 1
+			orbit_angle = { min = 90 max = 270 }
+			orbit_distance = { min = 20 max = 30 }
+			class = pc_continental
+			size = { min = 20 }
+			name = "Dakarai"
+			flags = { Dakarai }
+			# modifier = "wild_storms"
+			satellite_naming_policy = lower_case_latin_letters
+		}
+		
+		planet = {
+			count = 1
+			orbit_angle = { min = 90 max = 270 }
+			orbit_distance = { min = 20 max = 30 }
+			class = pc_gas_giant
+			name = "Jatau"
+			satellite_naming_policy = lower_case_latin_letters
+
+			change_orbit = @base_moon_distance
+
+			moon = {
+				count = 1
+				orbit_angle = { min = 90 max = 270 }
+				class = pc_toxic
+				name = "Mbalenhe"
+				orbit_distance = 5
+			}
+		}
+		planet = {
+			count = 1
+			orbit_angle = { min = 90 max = 270 }
+			orbit_distance = { min = 20 max = 30 }
+			class = pc_barren_cold
+			name = "Morana"
+			satellite_naming_policy = lower_case_latin_letters
+		}
+	}
+
+	planet = {
+		count = 1
+		class = star
+		name = "Dejen"
+		orbit_distance = { min = 160 max = 200 }
+		orbit_angle = { min = 90 max = 270 }
+		size = { min = @standard_sat_min max = @standard_sat_max }
+		has_ring = no
+		satellite_naming_policy = upper_case_roman_numerals
+
+		change_orbit = { min = 50 max = 60 }		
+
+		planet = {
+			count = 1
+			orbit_angle = { min = 90 max = 270 }
+			orbit_distance = { min = 20 max = 30 }
+			satellite_naming_policy = lower_case_latin_letters
+			class = pc_molten
+			name = "Njeri"
+			flags = { hot_zone Njeri }
+		}
+		
+		planet = {
+			count = 1
+			orbit_angle = { min = 90 max = 270 }
+			orbit_distance = { min = 20 max = 30 }
+			satellite_naming_policy = lower_case_latin_letters
+			class = pc_ocean
+			name = "Vinh"
+			flags = { Vinh }
+
+			change_orbit = @base_moon_distance
+
+			moon = {
+				count = 1
+				name = "Ziva"
+				flags = { Ziva }
+				orbit_angle = { min = 90 max = 270 }
+				class = pc_tropical
+				orbit_distance = 10
+			}
+		}
+		
+		planet = {
+			count = 1
+			orbit_angle = { min = 90 max = 270 }
+			orbit_distance = { min = 20 max = 30 }
+			satellite_naming_policy = lower_case_latin_letters
+			class = pc_savannah
+			name = "Alhaji"
+			flags = { Alhaji }
+		}
+
+		planet = {
+			count = 1
+			orbit_angle = { min = 90 max = 270 }
+			orbit_distance = { min = 20 max = 30 }
+			satellite_naming_policy = lower_case_latin_letters
+			class = pc_barren
+			name = "Chiemeka"
+			flags = { Chiemeka }
+		}		
+
+		planet = {
+			count = 1
+			orbit_angle = { min = 90 max = 270 }
+			orbit_distance = { min = 20 max = 30 }
+			satellite_naming_policy = lower_case_latin_letters
+			class = pc_toxic
+			name = "Mandla"
+			flags = { Mandla }
+		}
+
+		planet = {
+			count = 1
+			orbit_angle = { min = 90 max = 270 }
+			orbit_distance = { min = 20 max = 30 }
+			satellite_naming_policy = lower_case_latin_letters
+			class = pc_arctic
+			name = "Konjit"
+			flags = { Konjit }
+		}
+
+		planet = {
+			count = 1
+			orbit_angle = { min = 90 max = 270 }
+			orbit_distance = { min = 20 max = 30 }
+			satellite_naming_policy = lower_case_latin_letters
+			class = pc_barren_cold
+			name = "Faraji"
+			flags = { Faraji }
+		}
+    }
+
+	neighbor_system = {
+		trigger = { num_guaranteed_colonies >= 2 }
+		hyperlane_jumps = { min = 1 max = @jumps }
+		initializer = "neighbor_t1"
+	}
+	neighbor_system = {
+		trigger = { num_guaranteed_colonies >= 1 }
+		hyperlane_jumps = { min = 1 max = @jumps }
+		initializer = "neighbor_t1_first_colony"
+	}
+}

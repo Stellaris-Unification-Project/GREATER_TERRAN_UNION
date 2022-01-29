@@ -1,0 +1,20 @@
+
+### ANTERAS GAME START EVENTS
+
+namespace = antares_game_start
+
+event = {
+	id = antares_game_start.2002
+	hide_window = yes
+	is_triggered_only = yes
+
+	immediate = {
+		# Anteras Lost Colony Origin
+		every_country = {
+			limit = { 
+				has_origin = origin_antares
+			}
+			country_event = { id = origin_antares.00 }
+		}
+	}
+}
