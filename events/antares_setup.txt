@@ -151,7 +151,7 @@ event = {
 	}
 
 	immediate = {
-		every_planet = {
+		every_system_planet = {
 			if = {
 				limit = {
 					has_planet_flag = Ziva

@@ -451,8 +451,7 @@ planet_event = {
 	trigger = {
 		NOR = {
 			is_planet_class = pc_gaia
-			is_planet_class = pc_habitat
-			is_planet_class = pc_ringworld_habitable
+			is_artificial = yes
 			is_planet_class = pc_relic
 			is_planet_class = pc_nuked
 			owner = { has_origin = origin_remnants }
@@ -492,33 +491,23 @@ country_event = {
 	desc = {
 		text = progress.4.desc_01
 		trigger = {
-			NOT = {
-				OR = {
-					has_ethic = ethic_xenophobe
-					has_ethic = ethic_fanatic_xenophobe
-					has_ethic = ethic_xenophile
-					has_ethic = ethic_fanatic_xenophile
+			NOR = {
+					is_xenophobe = yes
+					is_xenophile = yes
 					has_ethic = ethic_gestalt_consciousness
-				}
-			}
+}
 		}
 	}
 	desc = { # Xenophile
 		text = progress.4.desc_02
 		trigger = {
-			OR = {
-				has_ethic = ethic_xenophile
-				has_ethic = ethic_fanatic_xenophile
-			}
+			is_xenophile = yes
 		}
 	}
 	desc = { # Xenophobe
 		text = progress.4.desc_03
 		trigger = {
-			OR = {
-				has_ethic = ethic_xenophobe
-				has_ethic = ethic_fanatic_xenophobe
-			}
+			is_xenophobe = yes
 		}
 	}
 	desc = { # Gestalt Consciousness
@@ -535,8 +524,7 @@ country_event = {
 		NOT = { has_country_flag = first_contact_event }
 		event_target:contact_empire = {
 			NOR = {
-				is_country_type = fallen_empire
-				is_country_type = awakened_fallen_empire
+				is_fallen_empire = yes
 				#is_country_type = tiyanki
 				is_amoeba_country_type = yes
 				is_country_type = cloud
@@ -554,33 +542,23 @@ country_event = {
 	option = {
 		name = "progress.4.a"
 		trigger = {
-			NOT = {
-				OR = {
+			NOR = {
 					has_ethic = ethic_gestalt_consciousness
-					has_ethic = ethic_xenophobe
-					has_ethic = ethic_fanatic_xenophobe
-					has_ethic = ethic_xenophile
-					has_ethic = ethic_fanatic_xenophile
-				}
-			}
+					is_xenophobe = yes
+					is_xenophile = yes
+}
 		}
 	}
 	option = {
 		name = "progress.4.b"
 		trigger = {
-			OR = {
-				has_ethic = ethic_xenophile
-				has_ethic = ethic_fanatic_xenophile
-			}
+			is_xenophile = yes
 		}
 	}
 	option = {
 		name = "progress.4.c"
 		trigger = {
-			OR = {
-				has_ethic = ethic_xenophobe
-				has_ethic = ethic_fanatic_xenophobe
-			}
+			is_xenophobe = yes
 		}
 	}
 	option = {
@@ -620,33 +598,23 @@ country_event = {
 	desc = {
 		text = progress.5.desc_01
 		trigger = {
-			NOT = {
-				OR = {
+			NOR = {
 					has_ethic = ethic_gestalt_consciousness
-					has_ethic = ethic_xenophobe
-					has_ethic = ethic_fanatic_xenophobe
-					has_ethic = ethic_xenophile
-					has_ethic = ethic_fanatic_xenophile
-				}
-			}
+					is_xenophobe = yes
+					is_xenophile = yes
+}
 		}
 	}
 	desc = { # Xenophile
 		text = progress.5.desc_02
 		trigger = {
-			OR = {
-				has_ethic = ethic_xenophile
-				has_ethic = ethic_fanatic_xenophile
-			}
+			is_xenophile = yes
 		}
 	}
 	desc = { # Xenophobe
 		text = progress.5.desc_03
 		trigger = {
-			OR = {
-				has_ethic = ethic_xenophobe
-				has_ethic = ethic_fanatic_xenophobe
-			}
+			is_xenophobe = yes
 		}
 	}
 	desc = { # Gestalt Consciousness
@@ -671,33 +639,23 @@ country_event = {
 	option = {
 		name = "progress.4.a"
 		trigger = {
-			NOT = {
-				OR = {
+			NOR = {
 					has_ethic = ethic_gestalt_consciousness
-					has_ethic = ethic_xenophobe
-					has_ethic = ethic_fanatic_xenophobe
-					has_ethic = ethic_xenophile
-					has_ethic = ethic_fanatic_xenophile
-				}
-			}
+					is_xenophobe = yes
+					is_xenophile = yes
+}
 		}
 	}
 	option = {
 		name = "progress.5.b"
 		trigger = {
-			OR = {
-				has_ethic = ethic_xenophile
-				has_ethic = ethic_fanatic_xenophile
-			}
+			is_xenophile = yes
 		}
 	}
 	option = {
 		name = "progress.5.c"
 		trigger = {
-			OR = {
-				has_ethic = ethic_xenophobe
-				has_ethic = ethic_fanatic_xenophobe
-			}
+			is_xenophobe = yes
 		}
 	}
 	option = {
@@ -737,33 +695,23 @@ country_event = {
 	desc = {
 		text = progress.6.desc_01
 		trigger = {
-			NOT = {
-				OR = {
+			NOR = {
 					has_ethic = ethic_gestalt_consciousness
-					has_ethic = ethic_xenophobe
-					has_ethic = ethic_fanatic_xenophobe
-					has_ethic = ethic_xenophile
-					has_ethic = ethic_fanatic_xenophile
-				}
-			}
+					is_xenophobe = yes
+					is_xenophile = yes
+}
 		}
 	}
 	desc = { # Xenophile
 		text = progress.6.desc_02
 		trigger = {
-			OR = {
-				has_ethic = ethic_xenophile
-				has_ethic = ethic_fanatic_xenophile
-			}
+			is_xenophile = yes
 		}
 	}
 	desc = { # Xenophobe
 		text = progress.6.desc_03
 		trigger = {
-			OR = {
-				has_ethic = ethic_xenophobe
-				has_ethic = ethic_fanatic_xenophobe
-			}
+			is_xenophobe = yes
 		}
 	}
 	desc = { # Gestalt Consciousness
@@ -788,33 +736,23 @@ country_event = {
 	option = {
 		name = "progress.4.a"
 		trigger = {
-			NOT = {
-				OR = {
+			NOR = {
 					has_ethic = ethic_gestalt_consciousness
-					has_ethic = ethic_xenophobe
-					has_ethic = ethic_fanatic_xenophobe
-					has_ethic = ethic_xenophile
-					has_ethic = ethic_fanatic_xenophile
-				}
-			}
+					is_xenophobe = yes
+					is_xenophile = yes
+}
 		}
 	}
 	option = {
 		name = "progress.6.b"
 		trigger = {
-			OR = {
-				has_ethic = ethic_xenophile
-				has_ethic = ethic_fanatic_xenophile
-			}
+			is_xenophile = yes
 		}
 	}
 	option = {
 		name = "progress.6.c"
 		trigger = {
-			OR = {
-				has_ethic = ethic_xenophobe
-				has_ethic = ethic_fanatic_xenophobe
-			}
+			is_xenophobe = yes
 		}
 	}
 	option = {
